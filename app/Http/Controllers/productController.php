@@ -34,14 +34,29 @@ class ProductController extends Controller
     }
 
 
+    // function delete($id) {
+    //     $product = Products::find($id);
+    
+    //     $product->delete();
+    //     $products_data = Products::all()->toArray();
+    
+    //     // return view('admin.all-products', compact('products_data'))->with
+    //     // ('status', 'Product deleted successfully!');
+
+    //     return redirect()->back()->with('products_data',$products_data)->
+    //     with('success','Product has been deleted successfully!');
+        
+    // }
     function delete($id) {
         $product = Products::find($id);
-    
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found!');
+        }
         $product->delete();
         $products_data = Products::all()->toArray();
     
-        return view('admin.all-products', compact('products_data'))->with('status', 'Product deleted successfully!');
-         
-        }
+        return redirect()->back()->with('products_data', $products_data)
+        ->with('success', 'Product has been deleted successfully!');
+    }
     
 }
