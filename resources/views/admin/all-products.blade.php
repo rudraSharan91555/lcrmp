@@ -28,6 +28,12 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
 
+          @if (session('status'))
+          <div class="alert alert-success">
+            {{ session('status')}}
+          </div>
+          @endif
+
           <table class="table">
             <thead>
               <tr>

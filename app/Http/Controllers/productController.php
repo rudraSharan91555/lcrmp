@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 
 
-class ProductController extends Controller // <-- Updated to PascalCase
+class ProductController extends Controller 
 {
     function index(){
 
@@ -28,14 +28,20 @@ class ProductController extends Controller // <-- Updated to PascalCase
 
         $product->save();
 
+        $products_data = Products::all()->toArray();
+
         return view('admin.add-product');
     }
 
-    function delete($id){
-        // echo $id;
-        $product = Products::find($id);
-        $product->delete();
 
-        return view('admin.all-products');
-    }
+    function delete($id) {
+        $product = Products::find($id);
+    
+        $product->delete();
+        $products_data = Products::all()->toArray();
+    
+        return view('admin.all-products', compact('products_data'))->with('status', 'Product deleted successfully!');
+         
+        }
+    
 }
