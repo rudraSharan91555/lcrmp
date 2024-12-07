@@ -14,4 +14,4 @@ Route::get('/add-product',function(){
     return view('admin.add-product');
 })->middleware('auth');
 
-// Route::get('/logout', 'HomeController@ logout');
+Route::post('/add-product', [App\Http\Controllers\ProductController::class, 'store'])->middleware('auth');
