@@ -8,7 +8,16 @@ use App\Models\Products;
 
 class ProductController extends Controller // <-- Updated to PascalCase
 {
-    public function store(Request $request)
+    function index(){
+
+        $products_data = Products::all()->toArray();
+
+        // dd($products_data);
+
+        return view('admin.all-products',compact('products_data'));
+    }
+
+    function store(Request $request)
     {
         $product = new Products();
         $product->product_title = $request->ptitle;
@@ -20,5 +29,13 @@ class ProductController extends Controller // <-- Updated to PascalCase
         $product->save();
 
         return view('admin.add-product');
+    }
+
+    function delete($id){
+        // echo $id;
+        $product = Products::find($id);
+        $product->delete();
+
+        return view('admin.all-products');
     }
 }

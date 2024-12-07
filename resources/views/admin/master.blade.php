@@ -110,6 +110,13 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ url('/all-products')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>All Products</p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
