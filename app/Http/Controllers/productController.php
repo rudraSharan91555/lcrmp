@@ -19,6 +19,21 @@ class ProductController extends Controller
 
     function store(Request $request)
     {
+        $request ->validate([
+            'ptitle' => 'required',
+            'pslug' => 'required',
+            'pprice' => 'required',
+            'pdescription' => 'required',
+        ],
+        [
+           'ptitle' => 'Product Title is required', 
+           'pslug' => 'Product Slug is required', 
+           'pprice' => 'Product Price is required', 
+           'pdescription' => 'Product Description is required', 
+        ],
+
+        );
+
         $product = new Products();
         $product->product_title = $request->ptitle;
         $product->product_slug = $request->pslug;
@@ -34,19 +49,6 @@ class ProductController extends Controller
     }
 
 
-    // function delete($id) {
-    //     $product = Products::find($id);
-    
-    //     $product->delete();
-    //     $products_data = Products::all()->toArray();
-    
-    //     // return view('admin.all-products', compact('products_data'))->with
-    //     // ('status', 'Product deleted successfully!');
-
-    //     return redirect()->back()->with('products_data',$products_data)->
-    //     with('success','Product has been deleted successfully!');
-        
-    // }
     function delete($id) {
         $product = Products::find($id);
         if (!$product) {

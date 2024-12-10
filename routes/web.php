@@ -19,3 +19,10 @@ Route::post('/add-product', [App\Http\Controllers\ProductController::class, 'sto
 Route::get('/all-products', [App\Http\Controllers\ProductController::class, 'index'])->middleware('auth');
 Route::get('/delete/{id}',[App\Http\Controllers\ProductController::class, 'delete'])->middleware('auth');
 Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.all-products');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
