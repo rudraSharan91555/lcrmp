@@ -70,8 +70,20 @@
                             <label for="productDescription">Product Description<Title></Title></label>
                             <textarea type="text" name="pdescription" value="" class="form-control">{{ $product['product_description'] }}</textarea>
                         </div>
+                        {{-- <div class="form-group">
+                            <label for="pimage">Product Image</label>
+                            <input type="file" name="pimage" 
+                            value="{{ $product['product_image'] }}"
+                            class="form-control" accept="image/*">
+                        </div> --}}
+                        
                         <div class="form-group">
-                            <label for="productImage">Product Image</label>
+                            <label for="pimage">Product Image</label>
+                            @if($product['product_image'])
+                                <div>
+                                    <img src="{{ asset('storage/' . $product['product_image']) }}" alt="Current Image" width="150">
+                                </div>
+                            @endif
                             <input type="file" name="pimage" class="form-control" accept="image/*">
                         </div>
 
