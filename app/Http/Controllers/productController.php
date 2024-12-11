@@ -24,12 +24,14 @@ class ProductController extends Controller
             'pslug' => 'required',
             'pprice' => 'required',
             'pdescription' => 'required',
+            'pimage' => 'required',
         ],
         [
            'ptitle' => 'Product Title is required', 
            'pslug' => 'Product Slug is required', 
            'pprice' => 'Product Price is required', 
            'pdescription' => 'Product Description is required', 
+           'pimage' => 'Product Description is required', 
         ],
 
         );
@@ -39,7 +41,7 @@ class ProductController extends Controller
         $product->product_slug = $request->pslug;
         $product->product_price	 = $request->pprice;
         $product->product_description = $request->pdescription;
-        $product->product_image = "1";
+        $product->product_image = $request->pimage;
 
         $product->save();
 
@@ -75,12 +77,14 @@ class ProductController extends Controller
             'pslug' => 'required',
             'pprice' => 'required',
             'pdescription' => 'required',
+            'pimage' => 'required',
         ],
         [
            'ptitle' => 'Product Title is required', 
            'pslug' => 'Product Slug is required', 
            'pprice' => 'Product Price is required', 
            'pdescription' => 'Product Description is required', 
+           'pimage' => 'Product Image is required', 
         ],
 
         );
@@ -95,7 +99,7 @@ class ProductController extends Controller
         $product->product_slug = $request->pslug;
         $product->product_price = $request->pprice;
         $product->product_description = $request->pdescription;
-        $product->product_image = "1"; 
+        $product->product_image = $request->pimage; 
     
         
         $product->save();

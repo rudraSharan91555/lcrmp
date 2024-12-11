@@ -55,6 +55,11 @@
                 <td>{{ $products['product_price'] }}</td>
                 <td>{{ $products['product_description']}}</td>
                 <td>{{ $products['product_image'] }}</td>
+                {{-- <td>@if($products['product_image'])
+                  <img src="{{ asset('storage/'.$products['product_image']) }}" alt="Product Image" width="100" height="100">
+                @else
+                  No Image
+                @endif</td> --}}
                 <td><a href="/edit/{{ $products['id'] }}" class="btn btn-primary">Edit</a></td>
                 <td><a href="/delete/{{ $products['id'] }}" 
                   class="btn btn-danger">Delet</a></td>

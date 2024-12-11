@@ -42,23 +42,28 @@
                     <form action="{{ url('/add-product') }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Product Title<Title></Title></label>
+                            <label for="productTitle">Product Title<Title></Title></label>
                             <input type="text" name="ptitle" class="form-control" placeholder="Enter Title">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Product Slug<Title></Title></label>
+                            <label for="productSlug">Product Slug<Title></Title></label>
                             <input type="text" name="pslug" class="form-control" placeholder="Enter Title">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Product Price<Title></Title></label>
+                            <label for="productPrice">Product Price<Title></Title></label>
                             <input type="text" name="pprice" class="form-control" placeholder="Enter Title">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Product Description<Title></Title></label>
+                            <label for="productDescription">Product Description<Title></Title></label>
                             <textarea type="text" name="pdescription" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productImage">Product Image</label>
+                            <input type="file" name="pimage" class="form-control" accept="image/*">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
