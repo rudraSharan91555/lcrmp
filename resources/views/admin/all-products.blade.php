@@ -55,8 +55,9 @@
                 <td>{{ $products['product_price'] }}</td>
                 <td>{{ $products['product_description']}}</td>
                 <td>{{ $products['product_image'] }}</td>
-                <td><a href="" class="btn btn-primary">Edit</a></td>
-                <td><a href="/delete/{{ $products['id'] }}" class="btn btn-danger">Delet</a></td>
+                <td><a href="/edit/{{ $products['id'] }}" class="btn btn-primary">Edit</a></td>
+                <td><a href="/delete/{{ $products['id'] }}" 
+                  class="btn btn-danger">Delet</a></td>
               </tr>
               @endforeach
             </tbody>
