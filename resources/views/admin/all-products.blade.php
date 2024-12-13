@@ -55,6 +55,7 @@
                 <td>{{ $products['product_price'] }}</td>
                 <td>{{ $products['product_description']}}</td>
                 <td>{{ $products['product_image'] }}</td>
+                
                 {{-- <td>@if($products['product_image'])
                   <img src="{{ asset('storage/'.$products['product_image']) }}" alt="Product Image" width="100" height="100">
                 @else

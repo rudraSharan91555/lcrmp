@@ -45,7 +45,7 @@
 
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <form action="{{ url('/edit') }}" method="post">
+                    <form action="{{ url('/edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $product['id'] }}" name="pid">
                         <div class="form-group">
@@ -70,22 +70,18 @@
                             <label for="productDescription">Product Description<Title></Title></label>
                             <textarea type="text" name="pdescription" value="" class="form-control">{{ $product['product_description'] }}</textarea>
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="pimage">Product Image</label>
-                            <input type="file" name="pimage" 
-                            value="{{ $product['product_image'] }}"
-                            class="form-control" accept="image/*">
-                        </div> --}}
+                        
+                        @if($product->product_image)
+                        <div>
+                            <img src="{{ asset('uploads/category/' . $product->product_image) }}" alt="Product Image" width="100">
+                        </div>
+                        @endif
                         
                         <div class="form-group">
                             <label for="pimage">Product Image</label>
-                            @if($product['product_image'])
-                                <div>
-                                    <img src="{{ asset('storage/' . $product['product_image']) }}" alt="Current Image" width="150">
-                                </div>
-                            @endif
                             <input type="file" name="pimage" class="form-control" accept="image/*">
                         </div>
+
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

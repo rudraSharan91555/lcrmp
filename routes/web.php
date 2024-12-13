@@ -14,7 +14,7 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout']);
 Route::get('/add-product',function(){
-    return view('admin.add-product');
+return view('admin.add-product');
 })->middleware('auth');
 Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.all-products');
 
