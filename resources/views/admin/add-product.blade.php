@@ -39,7 +39,7 @@
 
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <form action="{{ url('/add-product') }}" method="post">
+                    <form action="{{ url('/add-product') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="productTitle">Product Title<Title></Title></label>
@@ -64,7 +64,8 @@
 
                         <div class="form-group">
                             <label for="productImage">Product Image</label>
-                            <input type="file" name="pimage" class="form-control" accept="image/*">
+                            <input type="file" name="pimage" class="form-control">
+                            {{-- <input type="file" name="pimage" class="form-control" accept="image/*"> --}}
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
